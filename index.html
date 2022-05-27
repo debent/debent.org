@@ -13,51 +13,77 @@
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
-function onLoadFunction() {
-    
+
+function updateUI() {
     var randomInt=getRndInteger(0,5);
-    // var randomInt=0;
     switch(randomInt) {
         case 0:
             document.body.style.background = '#ffffff'; // White
             document.getElementById("myImg").src = "images/debEnt-logo-red-icon-black-font.png";
             document.getElementById('footer').style.backgroundColor = '#d70a53'; // Red
             document.getElementById('footer').style.color = '#ffffff'; // White
+            document.getElementById('text').style.color = '#d70a53'; // Red
             break;
         case 1:
             document.body.style.background = '#ffffff'; // White
             document.getElementById("myImg").src = "images/debEnt-logo-black-icon-black-font.png";
             document.getElementById('footer').style.backgroundColor = '#d70a53'; // Red
             document.getElementById('footer').style.color = '#ffffff'; // White
+            document.getElementById('text').style.color = '#d70a53'; // Red
             break;
         case 2:
             document.body.style.background = '#000000'; // Black
             document.getElementById("myImg").src = "images/debEnt-logo-red-icon-white-font.png";
             document.getElementById('footer').style.backgroundColor = '#ffffff'; // White
             document.getElementById('footer').style.color = '#000000'; // Black
+            document.getElementById('text').style.color = '#ffffff'; // White
             break;
         case 3:
             document.body.style.background = '#000000'; // Black
             document.getElementById("myImg").src = "images/debEnt-logo-white-icon-white-font.png";
             document.getElementById('footer').style.backgroundColor = '#d70a53'; // Red
             document.getElementById('footer').style.color = '#ffffff'; // White
+            document.getElementById('text').style.color = '#d70a53'; // Red
             break;
         case 4:
             document.body.style.background = '#d70a53'; // Red
             document.getElementById("myImg").src = "images/debEnt-logo-black-icon-white-font.png";
             document.getElementById('footer').style.backgroundColor = '#ffffff'; // White
             document.getElementById('footer').style.color = '#000000'; // Black
+            document.getElementById('text').style.color = '#ffffff'; // White
             break;
         case 5:
             document.body.style.background = '#d70a53'; // Red
             document.getElementById("myImg").src = "images/debEnt-logo-white-icon-black-font.png";
             document.getElementById('footer').style.backgroundColor = '#000000'; // Black
             document.getElementById('footer').style.color = '#ffffff'; // White
+            document.getElementById('text').style.color = '#000000'; // Black
             break;
         default:
             // code block
     }
 }
+
+function countDown( )
+{
+    duration = parseInt(duration*0.9)
+    var min_sec=getRndInteger(1,250);
+    if (duration < min_sec){
+        duration = min_sec;
+    }
+    document.getElementById("countdown").innerHTML = duration;
+    timer = window.setTimeout( "countDown()", duration);
+    updateUI();
+}
+
+var duration = getRndInteger(5000,7500);
+
+function onLoadFunction() {
+    document.getElementById("countdown").innerHTML = duration;
+    updateUI();
+    timer = window.setTimeout( "countDown()", duration );
+}
+
 </script>
 <style>
     #footer {
@@ -73,6 +99,8 @@ function onLoadFunction() {
 <body onload="onLoadFunction()">
     <div align=center>
         <img id="myImg" src="images/debEnt-logo-red-icon-black-font.png" style="max-width: 800px; width: 100%;"/>
+        <p id="text">Auto refresh in next <a id="countdown"></a> miliseconds </p> 
+        
     </div>
     <div id="footer">
         <p><b>&copy;2022 debEnt.org All rights reserved.</b></p>
