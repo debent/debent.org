@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>debEnt</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<script>
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+function onLoadFunction() {
+    
+    var randomInt=getRndInteger(0,5);
+    // var randomInt=0;
+    switch(randomInt) {
+        case 0:
+            document.body.style.background = '#ffffff'; // White
+            document.getElementById("myImg").src = "images/debEnt-logo-red-icon-black-font.png";
+            document.getElementById('footer').style.backgroundColor = '#d70a53'; // Red
+            document.getElementById('footer').style.color = '#ffffff'; // White
+            break;
+        case 1:
+            document.body.style.background = '#ffffff'; // White
+            document.getElementById("myImg").src = "images/debEnt-logo-black-icon-black-font.png";
+            document.getElementById('footer').style.backgroundColor = '#d70a53'; // Red
+            document.getElementById('footer').style.color = '#ffffff'; // White
+            break;
+        case 2:
+            document.body.style.background = '#000000'; // Black
+            document.getElementById("myImg").src = "images/debEnt-logo-red-icon-white-font.png";
+            document.getElementById('footer').style.backgroundColor = '#ffffff'; // White
+            document.getElementById('footer').style.color = '#000000'; // Black
+            break;
+        case 3:
+            document.body.style.background = '#000000'; // Black
+            document.getElementById("myImg").src = "images/debEnt-logo-white-icon-white-font.png";
+            document.getElementById('footer').style.backgroundColor = '#d70a53'; // Red
+            document.getElementById('footer').style.color = '#ffffff'; // White
+            break;
+        case 4:
+            document.body.style.background = '#d70a53'; // Red
+            document.getElementById("myImg").src = "images/debEnt-logo-black-icon-white-font.png";
+            document.getElementById('footer').style.backgroundColor = '#ffffff'; // White
+            document.getElementById('footer').style.color = '#000000'; // Black
+            break;
+        case 5:
+            document.body.style.background = '#d70a53'; // Red
+            document.getElementById("myImg").src = "images/debEnt-logo-white-icon-black-font.png";
+            document.getElementById('footer').style.backgroundColor = '#000000'; // Black
+            document.getElementById('footer').style.color = '#ffffff'; // White
+            break;
+        default:
+            // code block
+    }
+}
+</script>
+<style>
+    #footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #d70a53;
+      color: white;
+      text-align: center;
+    }
+    </style>
+<body onload="onLoadFunction()">
+    <div align=center>
+        <img id="myImg" src="images/debEnt-logo-red-icon-black-font.png"/>
+    </div>
+    <div id="footer">
+        <p>&copy;2022 debEnt.org All rights reserved.</p>
+    </div>
+</body>
+</html>
