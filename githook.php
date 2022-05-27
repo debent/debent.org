@@ -16,12 +16,8 @@ if($data=="debent/debent.org"){
     $data = $json->head_commit->message;
     // if (strpos(strtolower($data), 'release') !== false) {
     // }
-    $data = shell_exec('whoami');
-    file_put_contents('log_other.txt',$data, FILE_APPEND | LOCK_EX);
-    $data = shell_exec('pwd');
-    file_put_contents('log_other.txt',$data, FILE_APPEND | LOCK_EX);
     $data = shell_exec('gitpull');
-    file_put_contents('log_other.txt',$data, FILE_APPEND | LOCK_EX);
+    // file_put_contents('log_other.txt',$data, FILE_APPEND | LOCK_EX);
     echo "debEnt Website Updated";
 }
 
